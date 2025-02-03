@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "generator": "file:",
     "jspdf": "^2.5.2",
     "next": "15.1.6",
     "qrcode": "^1.5.4",
