@@ -8,7 +8,7 @@ export interface MenuProps {
     onClick?:() => void
 }
 
-export default function MenuItems({ title, icon, href, onClick }: MenuProps) {
+export default function MenuItems({ title, icon, href }: MenuProps) {
     return (
         <div className="mb-4">
             <Link href={href} className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-700 transition">
