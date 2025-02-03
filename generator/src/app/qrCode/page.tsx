@@ -1,7 +1,7 @@
 "use client";
 
 import QRCode from "react-qr-code";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 export default function QRCodeGenerator() {
     const [inputValue, setInputValue] = useState("");
@@ -15,7 +15,7 @@ export default function QRCodeGenerator() {
         }
     }, []);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
     };
 

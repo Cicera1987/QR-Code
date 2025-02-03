@@ -8,7 +8,6 @@ import QRCode from "react-qr-code";
 export default function History() {
     const [history, setHistory] = useState < string[] > ([]);
 
-    // Carregar o histórico do localStorage
     useEffect(() => {
         const savedHistory = localStorage.getItem("qrHistory");
         if (savedHistory) {
