@@ -2,11 +2,13 @@
 
 import { Icons } from "@/components/assets";
 import { generatePDF } from "@/components/utils/generatePDF";
+import useTheme from "@/hooks/useTheme";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
 export default function History() {
     const [history, setHistory] = useState < string[] > ([]);
+    const { darkMode } = useTheme();
 
     useEffect(() => {
         const savedHistory = localStorage.getItem("qrHistory");
@@ -15,26 +17,25 @@ export default function History() {
         }
     }, []);
 
- 
     const handleDelete = (index: number) => {
-        const updatedHistory = history.filter((_, i) => i !== index); 
+        const updatedHistory = history.filter((_, i) => i !== index);
         setHistory(updatedHistory);
         localStorage.setItem("qrHistory", JSON.stringify(updatedHistory));
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 py-10 min-w-[40px]">
+        <div className={`p-4  ${darkMode ? "bg-dark-background text-white" : "bg-background text-gray-900"}`}>
             <h1 className="text-3xl font-bold text-primary mb-6 text-center">Histórico de QR Codes Gerados</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {history.length > 0 ? (
                     history.map((item, index) => (
                         <div
                             key={index}
-                            className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                            className={`p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${darkMode ? "bg-background text-gray-900" : "bg-dark-background text-white"}`}
                         >
-                            <div className="flex flex-col items-center">
+                            <div className={`flex flex-col items-center ${darkMode ? "bg-background text-gray-900" : "bg-dark-background text-white"} `}>
                                 <QRCode value={item} size={128} />
-                                <p className="mt-4 text-center text-gray-700 truncate w-full">
+                                <p className="mt-4 text-center truncate w-full">
                                     <span className="font-bold">Título:</span> {item}
                                 </p>
                             </div>

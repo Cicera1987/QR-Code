@@ -6,6 +6,7 @@ import TimeLine from "./icons/timeLine"
 import Arrow from "./icons/arrow"
 import Delete from "./icons/delete"
 import Save from "./icons/save"
+import Close from "./icons/close"
 
 export const Icons = Object.assign(
     {},
@@ -17,6 +18,7 @@ export const Icons = Object.assign(
         TimeLine,
         Arrow,
         Delete,
-        Save
+        Save,
+        Close
     }
 )

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Gerador de Qr-code",
   description: "Esta é uma aplicação para gerar Qr-code",
   icons:{
-    icon:"/public/favicon.png"
+    icon:"/favicon.png"
   }
 };
 
@@ -26,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <head>
-        <link rel="icon" href="/public/favicon.png" />
+        <link rel="icon" href="/favicon.png" />
       </head>
       <body
-        className={`${montserrat.variable} ${montserrat.variable} antialiased bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white`}
+        className={`${montserrat.variable} ${montserrat.variable} antialiased`}
       >
         <Template
           header={<Sidebar />}

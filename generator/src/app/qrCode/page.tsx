@@ -2,10 +2,12 @@
 
 import QRCode from "react-qr-code";
 import { ChangeEvent, useEffect, useState } from "react";
+import useTheme from "@/hooks/useTheme";
 
 export default function QRCodeGenerator() {
     const [inputValue, setInputValue] = useState("");
     const [qrCodeData, setQrCodeData] = useState < string | null > (null);
+    const {darkMode} = useTheme()
 
     useEffect(() => {
         const savedData = localStorage.getItem("qrCodeData");
@@ -39,7 +41,7 @@ export default function QRCodeGenerator() {
     };
 
     return (
-        <div className="container min-h-screen flex flex-col justify-center items-center py-10">
+        <div className={`container min-h-screen flex flex-col justify-center items-center py-10 ${darkMode ? "bg-dark-background text-white" : "bg-background text-gray-900"}`}>
             <h1 className="text-3xl font-bold text-primary mb-4">Gerador de QR Code</h1>
             <input
                 type="text"

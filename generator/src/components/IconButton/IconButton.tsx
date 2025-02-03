@@ -12,7 +12,7 @@ export default function IconButton({ text, icon, onClick, isLightMode }: IconBut
     return (
         <button
             className={`p-2 flex items-center gap-2 rounded-md transition duration-300 
-            ${isLightMode ? "text-[#1F2937]" : "text-white"} dark:bg-highlight`}
+            ${isLightMode ? "text-[#1F2937]" : "text-[#E8EAED] "} dark:bg-highlight`}
             onClick={onClick}
         >
             <span>{text}</span>

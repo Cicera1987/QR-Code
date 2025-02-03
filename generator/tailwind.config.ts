@@ -16,9 +16,13 @@ export default {
         foreground: "#1F2937",
         primary: "#2563EB",
         highlight: "#9333EA",
+        text: "#1F2937",
+        bgSidebar:" #adb5bd",
         dark: {
           background: "#1F2937",
           foreground: "#F9FAFB",
+          text: "#1F2937",
+          bgSidebar:" #adb5bd"
         },
       },
     },
