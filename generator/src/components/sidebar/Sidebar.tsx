@@ -45,8 +45,8 @@ export default function Sidebar() {
                             key={item.title}
                             title={item.title}
                             icon={item.icon}
-                            href={item.link}
-                            onClick={() => handleNavigation(item.link)}
+                            href={item.href}
+                            onClick={() => handleNavigation(item.href)}
                         />
                     )
                 )}

@@ -8,7 +8,7 @@ interface SettingsPopUpProps {
     link?: string;
 }
 
-export default function SettingsPopUp({ onClose, type, link }: SettingsPopUpProps) {
+export default function SettingsPopUp({ onClose, link }: SettingsPopUpProps) {
     return (
         <div className="absolute left-full top-0 ml-2 bg-white shadow-lg rounded-lg p-4 w-60 z-50">
             <button
