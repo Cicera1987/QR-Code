@@ -22,7 +22,8 @@ export default {
           background: "#1F2937",
           foreground: "#F9FAFB",
           text: "#1F2937",
-          bgSidebar:" #adb5bd"
+          bgSidebar:" #adb5bd",
+          bgColor: "#D9D9D9"
         },
       },
     },

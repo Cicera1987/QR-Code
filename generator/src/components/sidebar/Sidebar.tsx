@@ -34,7 +34,7 @@ export default function Sidebar() {
 
     return (
         <nav
-            className={`w-64 p-4 transition-colors duration-300 ${sidebarDarkMode ? "bg-background text-gray-900" : "bg-dark-background text-white"}`}
+            className={`w-64 p-4 transition-colors duration-300 ${sidebarDarkMode ? "bg-dark-bgColor text-gray-900" : "bg-dark-background text-white"}`}
         >
             <ul>
                 {menuItems.map((item) => (

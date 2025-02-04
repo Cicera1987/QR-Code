@@ -31,9 +31,9 @@ export default function History() {
                     history.map((item, index) => (
                         <div
                             key={index}
-                            className={`p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${darkMode ? "bg-background text-gray-900" : "bg-dark-background text-white"}`}
+                            className={`p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${darkMode ? "bg-dark-bgColor text-gray-900" : "bg-background text-white"}`}
                         >
-                            <div className={`flex flex-col items-center ${darkMode ? "bg-background text-gray-900" : "bg-dark-background text-white"} `}>
+                            <div className={`flex flex-col items-center`}>
                                 <QRCode value={item} size={128} />
                                 <p className="mt-4 text-center truncate w-full">
                                     <span className="font-bold">Título:</span> {item}
