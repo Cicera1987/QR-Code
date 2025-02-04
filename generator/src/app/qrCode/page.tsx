@@ -2,7 +2,7 @@
 
 import QRCode from "react-qr-code";
 import { ChangeEvent, useEffect, useState } from "react";
-import useTheme from "@/hooks/useTheme";
+import useTheme from "../../hooks/useTheme";
 
 export default function QRCodeGenerator() {
     const [inputValue, setInputValue] = useState("");
@@ -42,7 +42,7 @@ export default function QRCodeGenerator() {
 
     return (
         <div className={`container min-h-screen flex flex-col justify-center items-center py-10 ${darkMode ? "bg-dark-background text-white" : "bg-background text-gray-900"}`}>
-            <h1 className="text-3xl font-bold text-primary mb-4">Gerador de QR Code</h1>
+            <h2 className="text-3xl font-bold text-primary mb-4">Gerador de QR Code</h2>
             <input
                 type="text"
                 placeholder="Digite o telefone, e-mail, CPF, CNPJ ou qualquer texto"
