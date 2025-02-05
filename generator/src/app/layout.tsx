@@ -4,6 +4,7 @@ import Template from "../components/template/Template";
 import Sidebar from "../components/sidebar/Sidebar";
 import Footer from "../components/footer/Footer";
 import "./globals.css";
+import Header from "@/components/header/header";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -32,7 +33,8 @@ export default function RootLayout({
         className={`${montserrat.variable} ${montserrat.variable} antialiased`}
       >
         <Template
-          header={<Sidebar />}
+        header={<Header/>}
+          sidebar={<Sidebar />}
           body={children}
           footer={<Footer />}
         />

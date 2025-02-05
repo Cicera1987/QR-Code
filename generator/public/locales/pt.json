@@ -1,0 +1,12 @@
+{
+    "generator":{
+        "title": "Gerador de QR Code",
+        "placeholder": "Digite o telefone, e-mail, CPF, CNPJ ou qualquer texto.",
+        "toClean": "Limpar",
+        "save": "Gerar QR code"
+    },
+     "history":{
+        "title": "Histórico de QR Codes Gerados",
+        "no_history": "Nenhum QR Code gerado ainda."
+    }
+}

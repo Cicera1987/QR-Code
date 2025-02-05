@@ -20,16 +20,16 @@ export default function Sidebar() {
     }, [darkMode]);
 
     const openSettings = (type: "theme" | "link") => {
-        setPopUpType(type);   // Define o tipo de pop-up
-        setShowSettings(true); // Exibe o pop-up
+        setPopUpType(type);
+        setShowSettings(true);
     };
 
     const closeSettings = () => {
-        setShowSettings(false); // Fecha o pop-up
+        setShowSettings(false);
     };
 
     const handleNavigation = (link: string) => {
-        router.push(link); // Navega para o link
+        router.push(link); 
     };
 
     return (
