@@ -1,17 +1,21 @@
 "use client";
 
-import {useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 
 export default function useLogic() {
     const [language, setLanguage] = useState("pt");
-
-
+ 
     const changeLanguage = (lang: string) => {
         setLanguage(lang);
         localStorage.setItem("language", lang);
         window.location.reload();
     };
     
+    const handleChangeLanguage = (e: ChangeEvent<HTMLSelectElement>) => {
+        const selectedLanguage = e.target.value;
+        changeLanguage(selectedLanguage); 
+    };
+
     useEffect(() => {
         const savedLang = localStorage.getItem("language");
         if (savedLang) setLanguage(savedLang);
@@ -20,7 +24,8 @@ export default function useLogic() {
     return{
         language,
         setLanguage,
-        changeLanguage
+        changeLanguage,
+        handleChangeLanguage
     }
 
 }

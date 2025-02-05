@@ -6,8 +6,7 @@ import { Icons } from "../assets";
 export default function Header() {
     const { darkMode } = useTheme();
     return (
-        <header className={`p-4 flex justify-between items-center shadow-md ${darkMode ? "bg-dark-bgColor text-gray-900" : "bg-dark-background text-white" }`}>
-            <Icons.QrCode/>
+        <header className={`p-4 ${darkMode ? "bg-dark-background  text-gray-900" : "bg-background text-gray-900" }`}>
            <LanguageSwitcher/>
         </header>
     );

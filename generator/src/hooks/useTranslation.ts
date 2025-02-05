@@ -3,16 +3,18 @@
 import { useEffect, useState } from "react";
 
 export default function useTranslation() {
-    const [language, setLanguage] = useState("pt");
+    const [language, setLanguage] = useState<string>("pt");
     const [translations, setTranslations] = useState<Record<string, any>>({});
 
     useEffect(() => {
         const savedLang = localStorage.getItem("language") || "pt";
         setLanguage(savedLang);
+    }, []);
 
+    useEffect(() => {
         const loadTranslations = async () => {
             try {
-                const response = await fetch(`/locales/${savedLang}.json`);
+                const response = await fetch(`/locales/${language}.json`);
                 const data = await response.json();
                 setTranslations(data);
             } catch (error) {
@@ -20,7 +22,9 @@ export default function useTranslation() {
             }
         };
 
-        loadTranslations();
+        if (language) {
+            loadTranslations();
+        }
     }, [language]);
 
     return translations;

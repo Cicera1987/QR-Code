@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${montserrat.variable} antialiased`}
       >
         <Template
-        header={<Header/>}
+          header={<Header/>}
           sidebar={<Sidebar />}
           body={children}
           footer={<Footer />}

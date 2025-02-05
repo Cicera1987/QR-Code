@@ -1,19 +1,22 @@
 "use client";
 
 import useLogic from "../../hooks/useLogic";
-import { useEffect} from "react";
 
 export default function LanguageSwitcher() {
-    const { setLanguage, changeLanguage } = useLogic()
+
+    const { language, handleChangeLanguage } = useLogic()
 
     return (
-        <div className="flex gap-2">
-            <button onClick={() => changeLanguage("pt")} className="px-3 py-1 border rounded">
-                🇧🇷 PT
-            </button>
-            <button onClick={() => changeLanguage("en")} className="px-3 py-1 border rounded">
-                🇺🇸 EN
-            </button>
+        <div className="flex justify-end w-full">
+            <select
+                value={language}
+                onChange={handleChangeLanguage}
+                className="px-4 py-1 bg-white border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg transition-all ease-in-out duration-200 hover:bg-gray-100"
+            >
+                <option value="pt">🇧🇷 PT</option>
+                <option value="en">🇺🇸 EN</option>
+            </select>
+
         </div>
     );
 }
