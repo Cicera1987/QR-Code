@@ -4,6 +4,7 @@ import { Icons } from "@/components/assets";
 import { generatePDF } from "@/components/utils/generatePDF";
 import useHistory from "@/hooks/useHistory";
 import useTheme from "@/hooks/useTheme";
+import useTranslation from "@/hooks/useTranslation";
 import QRCode from "react-qr-code";
 
 export default function History() {
@@ -14,10 +15,11 @@ export default function History() {
         handleDelete
     } = useHistory()
 
-    
+    const t = useTranslation()
+
     return (
         <div className={`p-4  ${darkMode ? "bg-dark-background text-white" : "bg-background text-gray-900"}`}>
-            <h1 className="text-3xl font-bold text-primary mb-6 text-center">Histórico de QR Codes Gerados</h1>
+            <h1 className="text-3xl font-bold text-primary mb-6 text-center">{t.history?.title}</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {history.length > 0 ? (
                     history.map((item, index) => (
@@ -27,7 +29,7 @@ export default function History() {
                         >
                             <div className={`flex flex-col items-center`}>
                                 <QRCode value={item} size={128} />
-                                <p className="mt-4 text-center truncate w-full">
+                                <p className="mt-4 text-center truncate w-full text-dark-text">
                                     <span className="font-bold">Título:</span> {item}
                                 </p>
                             </div>
@@ -48,7 +50,7 @@ export default function History() {
                         </div>
                     ))
                 ) : (
-                    <p className="text-center text-gray-500">Nenhum QR Code gerado ainda.</p>
+                        <p className="text-center text-gray-500">{t.history?.no_history}</p>
                 )}
             </div>
         </div>
