@@ -1,45 +1,21 @@
 "use client";
 
 import QRCode from "react-qr-code";
-import { ChangeEvent, useEffect, useState } from "react";
 import useTheme from "../../hooks/useTheme";
 import useTranslation from "../../hooks/useTranslation";
+import useGenerateQrCode from "../../hooks/useGenerateQrCode";
 
 export default function QRCodeGenerator() {
-    const [inputValue, setInputValue] = useState("");
-    const [qrCodeData, setQrCodeData] = useState < string | null > (null);
+    const {
+        inputValue,
+        qrCodeData,
+        handleChange,
+        handleGenerateQRCode,
+        handleClearInput
+     } = useGenerateQrCode()
+
     const { darkMode } = useTheme();
     const t = useTranslation();
-
-    useEffect(() => {
-        const savedData = localStorage.getItem("qrCodeData");
-        if (savedData) {
-            setQrCodeData(savedData);
-            setInputValue(savedData);
-        }
-    }, []);
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.target.value);
-    };
-
-    const handleGenerateQRCode = () => {
-        setQrCodeData(inputValue);
-        localStorage.setItem("qrCodeData", inputValue);
-
-        const savedHistory = localStorage.getItem("qrHistory");
-        const historyArray = savedHistory ? JSON.parse(savedHistory) : [];
-        historyArray.push(inputValue);
-        localStorage.setItem("qrHistory", JSON.stringify(historyArray));
-
-        setInputValue("");
-    };
-
-    const handleClearInput = () => {
-        setInputValue("");
-        setQrCodeData(null);
-        localStorage.removeItem("qrCodeData");
-    };
 
     return (
         <div className={`container min-h-screen flex flex-col justify-center items-center py-10 ${darkMode ? "bg-dark-background text-white" : "bg-background text-gray-900"}`}>

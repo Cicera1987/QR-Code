@@ -1,20 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import useLogic from "../../hooks/useLogic";
+import { useEffect} from "react";
 
 export default function LanguageSwitcher() {
-    const [language, setLanguage] = useState("pt");
-
-    useEffect(() => {
-        const savedLang = localStorage.getItem("language");
-        if (savedLang) setLanguage(savedLang);
-    }, []);
-
-    const changeLanguage = (lang: string) => {
-        setLanguage(lang);
-        localStorage.setItem("language", lang);
-        window.location.reload();
-    };
+    const { setLanguage, changeLanguage } = useLogic()
 
     return (
         <div className="flex gap-2">

@@ -2,27 +2,19 @@
 
 import { Icons } from "@/components/assets";
 import { generatePDF } from "@/components/utils/generatePDF";
+import useHistory from "@/hooks/useHistory";
 import useTheme from "@/hooks/useTheme";
-import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
 export default function History() {
-    const [history, setHistory] = useState < string[] > ([]);
     const { darkMode } = useTheme();
 
-    useEffect(() => {
-        const savedHistory = localStorage.getItem("qrHistory");
-        if (savedHistory) {
-            setHistory(JSON.parse(savedHistory));
-        }
-    }, []);
+    const {
+        history,
+        handleDelete
+    } = useHistory()
 
-    const handleDelete = (index: number) => {
-        const updatedHistory = history.filter((_, i) => i !== index);
-        setHistory(updatedHistory);
-        localStorage.setItem("qrHistory", JSON.stringify(updatedHistory));
-    };
-
+    
     return (
         <div className={`p-4  ${darkMode ? "bg-dark-background text-white" : "bg-background text-gray-900"}`}>
             <h1 className="text-3xl font-bold text-primary mb-6 text-center">Histórico de QR Codes Gerados</h1>
