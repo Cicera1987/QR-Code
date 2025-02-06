@@ -1,7 +1,6 @@
 "use client"
 import useTheme from "@/hooks/useTheme";
 import LanguageSwitcher from "../suspense/languagesSwitcher";
-import { Icons } from "../assets";
 
 export default function Header() {
     const { darkMode } = useTheme();

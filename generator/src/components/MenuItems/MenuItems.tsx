@@ -8,13 +8,14 @@ export interface MenuProps {
     darkMode?: boolean;
 }
 
-export default function MenuItems({ title, icon, onClick, darkMode }: MenuProps) {
+export default function MenuItems({ title, icon, onClick, darkMode, href }: MenuProps) {
     const buttonClasses = darkMode
         ? "bg-bgSidebar"
         : "bg-bgSidebar";
 
     return (
         <div className="mb-4">
+            <Link href={href}>
             <div
                 className={`flex items-center space-x-3 p-2 rounded-md hover:bg-gray-700 transition ${buttonClasses}`}
                 onClick={onClick}
@@ -22,6 +23,7 @@ export default function MenuItems({ title, icon, onClick, darkMode }: MenuProps)
                 <span className="text-xl">{icon}</span>
                 <span className="text-white">{title}</span>
             </div>
+            </Link>
         </div>
     );
 }
